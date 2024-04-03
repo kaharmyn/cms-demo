@@ -26,12 +26,17 @@
     <div id="content">
       {% block content %}{% endblock %}
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-        // DOM loaded
-        {% block domready %}
-        {% endblock %}
-      })
-    </script>
+    {% block include_js %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5sortable/0.13.3/html5sortable.min.js"></script>
+    {% endblock include_js %}
+    {# djlint: off #}
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  // DOM loaded
+  {% block domready %}
+  {% endblock %}
+})
+</script>
+    {# djlint: on #}
   </body>
 </html>
