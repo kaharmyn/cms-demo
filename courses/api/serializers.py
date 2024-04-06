@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from courses.models import Module, Subject, Course, Content
+
+from courses.models import Content, Course, Module, Subject
+
 
 # fmt: off
 class SubjectSerializer(serializers.ModelSerializer):

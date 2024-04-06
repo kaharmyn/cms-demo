@@ -15,7 +15,7 @@ for course in courses:
     course_title = course["title"]
     r = requests.post(
         f"{base_url}courses/{course_id}/enroll/", auth=(username, password)
-    )  # no E501
+    )  # noqa: E501
     if r.status_code == 200:
         # request success
         print(f"Successfully enrolled in {course_title}")
