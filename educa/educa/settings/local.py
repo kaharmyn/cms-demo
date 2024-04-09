@@ -4,6 +4,10 @@ from .base import *  # noqa:F403
 
 DEBUG = True
 
+INSTALLED_APPS += [  # noqa: F405
+    "debug_toolbar"
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

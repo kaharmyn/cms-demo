@@ -1,6 +1,5 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from asgiref.sync import async_to_sync
 from django.utils import timezone
 
 # fmt:off
@@ -15,7 +14,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.channel_name
         )
         # принять соединение
-        self.accept()
+        await self.accept()
 
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard(
