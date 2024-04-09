@@ -8,7 +8,7 @@ ADMIN = [
     ('Akhat A', 'email@email.com'),
 ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.educaproject.com', 'www.educaproject.com', 'educaproject.com']
 
 DATABASES = {
     'default': {
@@ -20,3 +20,13 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+
+REDIS_URL = 'redis://cache:6379'
+CACHES['default']['LOCATION'] = REDIS_URL  # noqa:F405
+CHANNEL_LAYERS['default']['CONFIG']['hosts'] = [REDIS_URL]  # noqa:F405
+
+# security
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
